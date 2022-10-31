@@ -8,9 +8,9 @@ BINARY_ERROR = 4
 
 def decimal_to_binary(decimal_number):
     if decimal_number < 0:
-        return(NEGATIVE_ERROR)
+        return NEGATIVE_ERROR
     elif decimal_number == 0:
-        return(ZERO_ERROR)
+        return ZERO_ERROR
     binary_array = []
     while decimal_number > 0:
         binary_array.append(decimal_number % 2)
@@ -25,10 +25,10 @@ def decimal_to_binary(decimal_number):
 def binary_to_decimal(binary_number):
     if not re.match('^[0-1]*$', str(binary_number)):
         return BINARY_ERROR
-    reversed = binary_number[::-1]
+    reversed_number = binary_number[::-1]
     i = 1
     return_value = 0
-    for element in reversed:
+    for element in reversed_number:
         return_value += (int(element) * i)
         i *= 2
     return str(return_value)
