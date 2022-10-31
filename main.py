@@ -1,4 +1,11 @@
+NEGATIVE_ERROR = 2
+ZERO_ERROR = 3
+
 def decimal_to_binary(decimal_number):
+    if decimal_number < 0:
+        return(NEGATIVE_ERROR)
+    elif decimal_number == 0:
+        return(ZERO_ERROR)
     binary_array = []
     while decimal_number > 0:
         binary_array.append(decimal_number % 2)
@@ -12,14 +19,13 @@ def decimal_to_binary(decimal_number):
 def main():
     number = int(input("What is the number in decimal? "))
 
-    if int(number) < 0:
-        print("Negative not allowed")
-        quit()
-    if int(number) == 0:
-        print("Binary is 0.")
-        quit()
     binary = decimal_to_binary(number)
-    print(f"Binary is {binary}.")
+    if binary == 2:
+        print("Negative not allowed.")
+    elif binary == 3:
+        print("Binary is 0.")
+    else:
+        print(f"Binary is {binary}.")
 
 if __name__ == "__main__":
     main()
